@@ -1,9 +1,6 @@
 package com.blog.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +22,10 @@ public abstract class BaseEntity {
 
     @JsonIgnore
     private LocalDateTime createTime;
+
+    @TableLogic
+    @TableField(fill = FieldFill.INSERT)
+    private Boolean isDel;
 
     @Override
     public String toString() {

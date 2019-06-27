@@ -1,0 +1,162 @@
+server:
+  port: 8180
+  servlet:
+    context-path: /
+    application-display-name: ${spring.application.name}
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: logs/access_logs/${spring.application.name}
+
+spring:
+  application:
+    name: lepin-app-server
+  autoconfigure:
+    exclude:
+    - com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+  profiles:
+    active: dev
+  messages:
+    basename: messages
+    encoding: UTF-8
+    fallback-to-system-locale: false
+    use-code-as-default-message: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+    serialization:
+      INDENT_OUTPUT: true
+      FAIL_ON_EMPTY_BEANS: false
+      WRITE_ENUMS_USING_TO_STRING: true
+      WRITE_DATES_AS_TIMESTAMPS: true
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+  session:
+    store-type: none
+  redis:
+    database: 2
+    host: localhost
+    port: 6379
+    timeout: 6000ms  # 连接超时时长（毫秒）
+    jedis:
+      pool:
+        max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1ms      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 10      # 连接池中的最大空闲连接
+        min-idle: 5       # 连接池中的最小空闲连接
+  cache:
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: ${spring.application.name}
+      time-to-live:
+    type: redis
+
+
+#mybatis
+mybatis-plus:
+  #type-enums-package: com.lepin.common.enums.*,com.lepin.common.enums
+  #type-handlers-package: com.lepin.instalments.typehandler
+  mapper-locations:
+  - classpath*:com/blog/mapper/*/*Dao.xml
+  global-config:
+    # DB策略配置
+    db-config:
+      # 是否开启大写命名，默认不开启
+      capital-mode: false
+      # 是否开启 LIKE 查询，即根据 enums 自动生成的 where 条件中 String 类型字段 是否使用 LIKE，默认不开启
+      column-like: false
+      # 数据库类型
+      db-type: mysql
+      # 全局默认主键类型
+      id-type: auto
+      # 逻辑删除定义
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    # sql解析缓存
+    sql-parser-cache: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    # 指定 MyBatis 是否并且如何来自动映射数据表字段与对象的属性, none(不启用自动映射), partial(只对非嵌套的 resultMap 进行自动映射), full(对所有的 resultMap 都进行自动映射)
+    auto-mapping-behavior: partial
+    auto-mapping-unknown-column-behavior: none
+
+# kaptcha 配置
+kaptcha:
+  border: false
+  font-color: black
+  char-space: 5
+  cache-ttl: 300
+
+blog:
+  security:
+    validate-request-signature: false
+    password-mismatch-count-cache-ttl: 86400
+    password-mismatch-max-count: 5
+  encryption:
+    salt: q95rlFxlrGeeDRMi
+    hash-count: 5
+    privacy-field-salt: 0123456789abcdef
+  jwt:
+    # token的过期时间,默认一个星期
+    token-expire-time: 604800
+    # token的公共加密盐
+    secret: 5pJhUB43KZpCEmc0ZZhEUdrDPCH7nC5z
+  cache:
+    default-ttl: 3600
+    default-max-size: 1000
+    ttls:
+      user-jwt-tokens: ${blog.jwt.token-expire-time}
+    max-entries:
+      user-jwt-tokens: 0
+      anon-jwt-token: 0
+
+aliyun:
+  oss:
+    accessKeyId: LTAI5qSwYB0I2dtf
+    accessKeySecret: Ka8CSJbT52w6ypOPdFtM7mzEl6N8WA
+    roleArn: acs:ram::5067443325590148:role/aliyunosstokengeneratorrole
+    userInternal: false
+    publicBucket: public-lepin-djakarta
+    publicEndpoint: oss-ap-southeast-5.aliyuncs.com
+    publicInternalEndpoint: oss-ap-southeast-5-internal.aliyuncs.com
+    publicBucketHost: https://public-lepin-djakarta.oss-ap-southeast-5.aliyuncs.com
+    publicInternalBucketHost: https://public-lepin-djakarta.oss-ap-southeast-5-internal.aliyuncs.com
+    privateBucket: private-lepin-djakarta
+    privateEndpoint: oss-ap-southeast-5.aliyuncs.com
+    privateInternalEndpoint: oss-ap-southeast-5-internal.aliyuncs.com
+    privateBucketHost: https://private-lepin-djakarta.oss-ap-southeast-5.aliyuncs.com
+    privateInternalBucketHost: https://private-lepin-djakarta.oss-ap-southeast-5-internal.aliyuncs.com
+    expireTime: 3600
+  sms:
+    accessKeyId: LTAINS53dG1DxOmI
+    accessKeySecret: JoEZRSMwd72I9gNvM6RqjyDGUiTwF8
+    product: Dysmsapi
+    domain : dysmsapi.ap-southeast-1.aliyuncs.com
+    regionId: ap-southeast-1
+    endPointName: ap-southeast-1
+    signName: lepin-fintech
+    singleLimit: 1
+
+
+apollo:
+  bootstrap:
+    enabled: false
+    namespaces: secrets,application
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    root: INFO
+

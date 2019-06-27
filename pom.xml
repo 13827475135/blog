@@ -60,6 +60,7 @@
         <module>entity</module>
         <module>persistence</module>
         <module>data-vo</module>
+        <module>server-component</module>
     </modules>
 
     <dependencies>

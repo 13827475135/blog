@@ -11,5 +11,17 @@
 
     <artifactId>server-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.blog</groupId>
+            <artifactId>server-component</artifactId>
+            <version>${root.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.blog</groupId>
+            <artifactId>module-user</artifactId>
+            <version>${root.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.blog.server.component.configuration.ComponentConfiguration,\
+com.blog.server.component.configuration.DataSourceConfiguration,\
+com.blog.server.component.configuration.MybatisPlusConfiguration,\
+com.blog.server.component.configuration.CustomWebMvcConfigurer,\
+com.blog.server.component.configuration.GlobalExceptionHandler,\
+com.blog.server.component.configuration.RedisCacheStoreConfiguration

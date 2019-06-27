@@ -9,17 +9,27 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>server-operation</artifactId>
+    <artifactId>server-component</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.blog</groupId>
-            <artifactId>server-component</artifactId>
+            <artifactId>common-util</artifactId>
             <version>${root.version}</version>
         </dependency>
         <dependency>
             <groupId>com.blog</groupId>
-            <artifactId>module-user</artifactId>
+            <artifactId>persistence</artifactId>
+            <version>${root.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.blog</groupId>
+            <artifactId>module-blog</artifactId>
+            <version>${root.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.blog</groupId>
+            <artifactId>module-system</artifactId>
             <version>${root.version}</version>
         </dependency>
     </dependencies>
