@@ -124,29 +124,29 @@ blog:
 
 # aliyun:
 #   oss:
-#     accessKeyId: LTAI5qSwYB0I2dtf
-#     accessKeySecret: Ka8CSJbT52w6ypOPdFtM7mzEl6N8WA
-#     roleArn: acs:ram::5067443325590148:role/aliyunosstokengeneratorrole
+#     accessKeyId: 
+#     accessKeySecret: 
+#     roleArn: 
 #     userInternal: false
-#     publicBucket: public-lepin-djakarta
-#     publicEndpoint: oss-ap-southeast-5.aliyuncs.com
-#     publicInternalEndpoint: oss-ap-southeast-5-internal.aliyuncs.com
-#     publicBucketHost: https://public-lepin-djakarta.oss-ap-southeast-5.aliyuncs.com
-#     publicInternalBucketHost: https://public-lepin-djakarta.oss-ap-southeast-5-internal.aliyuncs.com
-#     privateBucket: private-lepin-djakarta
-#     privateEndpoint: oss-ap-southeast-5.aliyuncs.com
-#     privateInternalEndpoint: oss-ap-southeast-5-internal.aliyuncs.com
-#     privateBucketHost: https://private-lepin-djakarta.oss-ap-southeast-5.aliyuncs.com
-#     privateInternalBucketHost: https://private-lepin-djakarta.oss-ap-southeast-5-internal.aliyuncs.com
+#     publicBucket: 
+#     publicEndpoint: 
+#     publicInternalEndpoint: 
+#     publicBucketHost: 
+#     publicInternalBucketHost: 
+#     privateBucket: 
+#     privateEndpoint: 
+#     privateInternalEndpoint: 
+#     privateBucketHost: 
+#     privateInternalBucketHost: 
 #     expireTime: 3600
 #   sms:
-#     accessKeyId: LTAINS53dG1DxOmI
-#     accessKeySecret: JoEZRSMwd72I9gNvM6RqjyDGUiTwF8
-#     product: Dysmsapi
-#     domain : dysmsapi.ap-southeast-1.aliyuncs.com
-#     regionId: ap-southeast-1
-#     endPointName: ap-southeast-1
-#     signName: lepin-fintech
+#     accessKeyId: 
+#     accessKeySecret: 
+#     product: 
+#     domain : 
+#     regionId: 
+#     endPointName: 
+#     signName: 
 #     singleLimit: 1
 
 
