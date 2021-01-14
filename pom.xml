@@ -45,7 +45,7 @@
         <itextpdf.version>5.5.13</itextpdf.version>
         <com.xuxueli-xxl-excel>1.0.0</com.xuxueli-xxl-excel>
         <com.xuxueli-xxl-job-core>2.0.1</com.xuxueli-xxl-job-core>
-        <org.apache.poi.poi>3.13</org.apache.poi.poi>
+        <org.apache.poi.poi>3.17</org.apache.poi.poi>
         <org.apache.poi.ooxml>3.13</org.apache.poi.ooxml>
     </properties>
 
